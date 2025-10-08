@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2 Project</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome to Task 2 Project</h1>
+    <nav>
+      <button class="tab-btn" data-target="contact">Contact</button>
+      <button class="tab-btn" data-target="todo">To-Do List</button>
+      <button class="tab-btn" data-target="queries">Queries</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Contact Form -->
+    <section id="contact" class="tab-section">
+      <h2>Contact Form</h2>
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Submit</button>
+        <button type="button" id="saveContact">Save Contact Info</button>
+      </form>
+      <p id="contactMsg"></p>
+    </section>
+
+    <!-- To-Do List -->
+    <section id="todo" class="tab-section">
+      <h2>To-Do List</h2>
+      <input type="text" id="taskInput" placeholder="Enter a task">
+      <button id="addTask">Add Task</button>
+      <ul id="taskList"></ul>
+      <button id="saveTasks">Save Tasks</button>
+    </section>
+
+    <!-- Queries -->
+    <section id="queries" class="tab-section">
+      <h2>Queries</h2>
+      <input type="text" id="queryInput" placeholder="Type your query...">
+      <button id="sendQuery">Send</button>
+      <div id="queryResponse"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
