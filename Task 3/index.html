@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Quiz & Jokes App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container" id="home">
+    <h1>🎓 Welcome to Fun Learning Hub</h1>
+    <p>Select what you’d like to do:</p>
+    <div class="options">
+      <button onclick="showQuizSelection()">🧠 Take a Quiz</button>
+      <button onclick="showJokeSection()">🤣 Get a Random Joke</button>
+    </div>
+  </div>
+
+  <!-- QUIZ SELECTION -->
+  <div class="container hidden" id="quizSelect">
+    <h2>Select a Programming Quiz Topic</h2>
+    <div class="options">
+      <button onclick="startQuiz('html')">HTML</button>
+      <button onclick="startQuiz('css')">CSS</button>
+      <button onclick="startQuiz('javascript')">JavaScript</button>
+    </div>
+    <button class="back" onclick="goHome()">⬅ Back</button>
+  </div>
+
+  <!-- QUIZ SECTION -->
+  <div class="container hidden" id="quizSection">
+    <h2 id="quizTitle"></h2>
+    <div id="questionBox"></div>
+    <div id="answerButtons"></div>
+    <div id="feedback"></div>
+    <button id="nextBtn" class="hidden" onclick="nextQuestion()">Next Question ➡</button>
+    <button id="finishBtn" class="hidden" onclick="showResult()">Finish Quiz 🎯</button>
+    <button class="back" onclick="goHome()">⬅ Back</button>
+  </div>
+
+  <!-- JOKE SECTION -->
+  <div class="container hidden" id="jokeSection">
+    <h2>🤣 Random Programming Joke</h2>
+    <p id="jokeText">Click below to get a funny joke!</p>
+    <button onclick="fetchJoke()">Get Joke</button>
+    <button class="back" onclick="goHome()">⬅ Back</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
