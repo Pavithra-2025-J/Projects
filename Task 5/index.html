@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartShop - E-Commerce Store</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🛍️ SmartShop</h1>
+    <input type="text" id="searchBar" placeholder="Search for products..." />
+    <button id="cartBtn">🛒 Cart (<span id="cart-count">0</span>)</button>
+  </header>
+
+  <main>
+    <section id="product-section" class="grid"></section>
+  </main>
+
+  <!-- Product Detail Modal -->
+  <div id="product-detail" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="detail-name"></h2>
+      <p id="detail-desc"></p>
+      <h3 id="detail-price"></h3>
+      <button id="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+      <h3 id="cart-total"></h3>
+      <button id="checkoutBtn">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- Order Modal -->
+  <div id="order-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Place Your Order</h2>
+      <form id="orderForm">
+        <input type="text" id="cust-name" placeholder="Full Name" required />
+        <input type="email" id="cust-email" placeholder="Email" required />
+        <textarea id="cust-address" placeholder="Shipping Address" required></textarea>
+        <select id="payment-mode" required>
+          <option value="">Select Payment Mode</option>
+          <option value="Cash on Delivery">Cash on Delivery</option>
+          <option value="Credit/Debit Card">Credit/Debit Card</option>
+          <option value="UPI">UPI</option>
+        </select>
+        <button type="submit">Place Order</button>
+      </form>
+      <p id="confirmation-message" class="hidden">
+        ✅ Your order has been placed successfully!
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 SmartShop | Designed with ❤️ by Pavithra</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
