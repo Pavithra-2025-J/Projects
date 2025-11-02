@@ -1,0 +1,97 @@
+// ---------------- TO-DO LIST ----------------
+if (document.getElementById("todo-input")) {
+  const todoInput = document.getElementById("todo-input");
+  const addBtn = document.getElementById("add-btn");
+  const todoList = document.getElementById("todo-list");
+  let todos = JSON.parse(localStorage.getItem("todos")) || [];
+
+  function renderTodos() {
+    todoList.innerHTML = "";
+    todos.forEach((task, index) => {
+      const li = document.createElement("li");
+      li.innerHTML = `<span>${task}</span><button onclick="deleteTask(${index})">❌</button>`;
+      todoList.appendChild(li);
+    });
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }
+
+  addBtn.addEventListener("click", () => {
+    if (todoInput.value.trim()) {
+      todos.push(todoInput.value.trim());
+      todoInput.value = "";
+      renderTodos();
+    }
+  });
+
+  window.deleteTask = (index) => {
+    todos.splice(index, 1);
+    renderTodos();
+  };
+
+  renderTodos();
+}
+
+// ---------------- PRODUCT LIST ----------------
+if (document.getElementById("product-list")) {
+  const products = [
+    { name: "Smartphone X10", category: "electronics", price: 699, rating: 4.7 },
+    { name: "Bluetooth Speaker", category: "electronics", price: 129, rating: 4.4 },
+    { name: "Laptop Pro", category: "electronics", price: 999, rating: 4.8 },
+    { name: "Cotton T-Shirt", category: "clothing", price: 25, rating: 4.2 },
+    { name: "Denim Jeans", category: "clothing", price: 40, rating: 4.0 },
+    { name: "Leather Jacket", category: "clothing", price: 85, rating: 4.5 },
+    { name: "Wall Clock", category: "home", price: 35, rating: 4.3 },
+    { name: "Table Lamp", category: "home", price: 50, rating: 4.6 },
+    { name: "Cushion Set", category: "home", price: 20, rating: 4.1 },
+    { name: "Smartwatch Z2", category: "gadgets", price: 249, rating: 4.5 },
+    { name: "Drone Mini", category: "gadgets", price: 399, rating: 4.8 },
+    { name: "VR Headset", category: "gadgets", price: 299, rating: 4.7 },
+  ];
+
+  const productList = document.getElementById("product-list");
+  const categoryFilter = document.getElementById("category-filter");
+  const sortFilter = document.getElementById("sort-filter");
+
+  function renderProducts(items) {
+    productList.innerHTML = "";
+    items.forEach((p) => {
+      const div = document.createElement("div");
+      div.classList.add("product");
+      div.innerHTML = `
+        <h3>${p.name}</h3>
+        <p>Category: ${p.category}</p>
+        <p>💲 ${p.price}</p>
+        <p>⭐ ${p.rating}</p>
+      `;
+      productList.appendChild(div);
+    });
+  }
+
+  function applyFilters() {
+    let filtered = [...products];
+    const category = categoryFilter.value;
+    const sortBy = sortFilter.value;
+
+    if (category !== "all") filtered = filtered.filter((p) => p.category === category);
+    if (sortBy === "price-low") filtered.sort((a, b) => a.price - b.price);
+    if (sortBy === "price-high") filtered.sort((a, b) => b.price - a.price);
+    if (sortBy === "rating-high") filtered.sort((a, b) => b.rating - a.rating);
+
+    renderProducts(filtered);
+  }
+
+  categoryFilter.addEventListener("change", applyFilters);
+  sortFilter.addEventListener("change", applyFilters);
+  renderProducts(products);
+}
+
+// ---------------- FADE ANIMATION ON NAV LINKS ----------------
+document.querySelectorAll(".nav-link").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.body.style.opacity = "0";
+    setTimeout(() => {
+      window.location = link.href;
+    }, 400);
+  });
+});
