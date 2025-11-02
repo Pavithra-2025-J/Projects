@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio - Shop</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="fade-in">
+  <header>
+    <h1>🛍️ Product Store</h1>
+    <nav>
+      <a href="index.html" class="nav-link">⬅ Back to Home</a>
+    </nav>
+  </header>
+
+  <section id="shop" class="glass">
+    <h2>Shop by Category</h2>
+    <div class="filters">
+      <select id="category-filter">
+        <option value="all">All</option>
+        <option value="electronics">Electronics</option>
+        <option value="clothing">Clothing</option>
+        <option value="home">Home</option>
+        <option value="gadgets">Gadgets</option>
+      </select>
+      <select id="sort-filter">
+        <option value="default">Sort By</option>
+        <option value="price-low">Price: Low → High</option>
+        <option value="price-high">Price: High → Low</option>
+        <option value="rating-high">Rating: High → Low</option>
+      </select>
+    </div>
+    <div id="product-list" class="product-list"></div>
+  </section>
+
+  <section id="contact" class="glass">
+    <h2>Contact Me</h2>
+    <p>📧 Email: <a href="mailto:you@example.com">you@example.com</a></p>
+    <p>🔗 LinkedIn: <a href="#">linkedin.com/in/yourprofile</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 My Portfolio | Built with ❤️</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
